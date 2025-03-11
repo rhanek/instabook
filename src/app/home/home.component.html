@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="grid">
+        @if((queryCommand | async)?.results ?? [].length !== 0){
+            @for(user of (queryCommand | async)?.results ?? []; track user){
+                <div class="card">
+                    <div class="container-avatar">
+                        <img [src]="user.image" alt="User Photo" class="avatar" />
+                    </div>
+                    <h3>{{ user.first_name }} {{user.last_name}}</h3>
+                    <div class="actions">
+                        <div (click)="viewDetails(user._id)" class="button-menu">
+                            <mat-icon class="icon" aria-hidden="false" aria-label="searchy" fontIcon="search"></mat-icon>
+                             Ver detalle
+                        </div>
+                        <div (click)="updateUser(user)" class="button-menu">
+                            <mat-icon class="icon" aria-hidden="false" aria-label="cached" fontIcon="cached"></mat-icon>
+                             Actualizar
+                        </div>
+                        <div (click)="deleteUser(user)" class="button-menu">
+                            <mat-icon class="icon" aria-hidden="false" aria-label="delete" fontIcon="delete"></mat-icon>
+                            Borrar
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="container" [formGroup]="mainForm">
+    <span class="title-field">Nombre Usuario</span>
+    <mat-form-field>
+        <mat-label>Nombre Usuario</mat-label>
+        <input matInput formControlName="first_name" id="first_name">
+        <mat-error *ngIf="mainForm.get('first_name')?.hasError('required')">
+            El nombre es obligatorio
+        </mat-error>
+    </mat-form-field>
+    
+    <span class="title-field">Apellido Usuario</span>
+    <mat-form-field>
+        <mat-label>Apellido Usuario</mat-label>
+        <input matInput formControlName="last_name" id="last_name">
+        <mat-error *ngIf="mainForm.get('last_name')?.hasError('required')">
+            El apellido es obligatorio
+        </mat-error>
+    </mat-form-field>
+    
+    <span class="title-field" >Email Usuario</span>
+    <mat-form-field>
+        <mat-label>Email Usuario</mat-label>
+        <input matInput formControlName="email" id="email">
+        <mat-error *ngIf="mainForm.get('email')?.hasError('required')">
+            El email es obligatorio
+        </mat-error>
+        <mat-error *ngIf="mainForm.get('email')?.hasError('email')">
+            El email no es válido
+        </mat-error>
+    </mat-form-field>
+    
+    <span class="title-field">Imagen Usuario</span>
+    <mat-form-field>
+        <mat-label>Imagen Usuario</mat-label>
+        <input matInput formControlName="image" id="image">
+        <mat-error *ngIf="mainForm.get('image')?.hasError('required')">
+            El user image es obligatorio
+        </mat-error>
+    </mat-form-field>
+</div>
+<div class="button-container">
+    <div class="button-menu"  [class.disabled]="mainForm.invalid"  (click)="save()">
+        @if (data){
+            Actualizar
+        }
+        @else {
+            Guardar
+        }
+    </div>
+    <div class="button-menu" (click)="close()">
+        Close
+    </div>
+</div>

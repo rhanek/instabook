@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid black;
+    margin: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.logo-container{
+    width: 100px;
+}
+
+.menu {
+    display: flex;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    gap: 2rem;
+    cursor: pointer;
+}
+
+.menu span:nth-child(2) {
+    color: rgb(134, 21, 125);
+  }

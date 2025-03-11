@@ -1,0 +1,30 @@
+<div class="container">
+     @if ((queryCommand | async)?.length !== 0){
+        <div class="container-avatar">
+            <img [src]="(queryCommand | async)?.image" alt="User Photo" class="avatar" />
+        </div>
+        <div class="container-data">
+            <div class="data">
+                <span class="title">{{(queryCommand | async)?.first_name}}</span>
+                <span class="title">{{(queryCommand | async)?.last_name}}</span>
+                <span class="subtitle"><b>Nome do usuario:</b> {{(queryCommand | async)?.first_name}}</span>
+                <span class="subtitle"><b>Email:</b> {{(queryCommand | async)?.email}}</span>
+            </div>
+
+            <div class="actions">
+                <div (click)="deleteUser()" class="button-menu">
+                    <mat-icon class="icon" aria-hidden="false" aria-label="delete" fontIcon="delete"></mat-icon>
+                     Eliminar
+                </div>
+                <div (click)="updateUser()" class="button-menu">
+                    <mat-icon class="icon" aria-hidden="false" aria-label="cached" fontIcon="cached"></mat-icon>
+                     Actualizar
+                </div>
+                <div (click)="close()" class="button-menu">
+                    <mat-icon class="icon" aria-hidden="false" aria-label="logout" fontIcon="logout"></mat-icon>
+                    Volver a listado
+                </div>
+            </div>
+        </div>
+    }
+</div>
